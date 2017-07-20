@@ -15,7 +15,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        {pattern: 'test/*_spec.js', watched: false},
+        'https://code.jquery.com/jquery-3.2.1.slim.min.js',
+        //'node_modules/babel-polyfill/dist/polyfill.min.js',
+        'test_context.js'
     ],
 
 
@@ -27,15 +29,21 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'test/*_spec.js': ['webpack', 'sourcemap']
+        //'test/**/*_spec.js': ['webpack'],
+        //'src/pure-node.js': ['webpack']
+        'test_context.js' : ['webpack', 'sourcemap']
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
-
+    reporters: ['dots', 'coverage', 'html'],
+    htmlReporter: {
+        outputFile: 'reports/units.html',
+        pageTitle: 'Tests',
+        subPageTitle: 'Unit and integration tests'
+    },
 
     // web server port
     port: 9876,
@@ -47,7 +55,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // enable / disable watching file and executing test whenever any file changes
@@ -56,7 +64,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
 
 
     // Continuous Integration mode
@@ -66,9 +74,9 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity,
-    plugins: [require('karma-webpack'), require('karma-chrome-launcher'),
+    plugins: [require('karma-webpack'), require('karma-firefox-launcher'),
         require('karma-mocha'), require('karma-sourcemap-loader'),
-        require('karma-coverage')],
+        require('karma-coverage'), require('karma-htmlfile-reporter')],
 
     webpack:require('./webpack.config'),
 
@@ -76,12 +84,6 @@ module.exports = function(config) {
       // webpack-dev-middleware configuration
       // i. e.
       stats: 'errors-only'
-    },
-
-      // optionally, configure the reporter
-      coverageReporter: {
-          type : 'html',
-          dir : 'coverage/'
-      }
+    }
   })
 }
