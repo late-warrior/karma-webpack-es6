@@ -6,7 +6,8 @@ module.exports = {
     entry: ['./src/index.js'],
     output: {
         path: path.resolve('dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        library: 'TestHC'
     },
     module: {
         rules: [
