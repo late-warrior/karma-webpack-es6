@@ -1,3 +1,5 @@
+// Functions that can run on nodejs
+
 export function echo(st) {
     return `Echoing ${st}`;
 }

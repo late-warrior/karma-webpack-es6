@@ -1,6 +1,6 @@
 {
   "name": "karma-es6-coverage",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "highcharts": "^5.0.11",
@@ -30,9 +30,6 @@
     "cover": "NODE_ENV=test nyc npm run test"
   },
   "nyc": {
-    "require": [
-      "babel-register"
-    ],
     "sourceMap": false,
     "instrument": false,
     "cache": true

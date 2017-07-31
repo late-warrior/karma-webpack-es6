@@ -1,8 +1,5 @@
-/**
- * Created by sriram on 11/5/17.
- */
-
-import {createBarChart} from './draw';
+export {echo, add5} from './pure-node';
+export {createBarChart} from './draw';
 
 // Shorthand for $( document ).ready()
 $(function() {
