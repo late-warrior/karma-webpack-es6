@@ -20,14 +20,16 @@
     "karma-webpack": "^2.0.3",
     "mocha": "^3.3.0",
     "nyc": "^10.3.2",
+    "prettier": "^1.5.3",
     "webpack": "^2.5.1"
   },
   "scripts": {
     "build": "webpack",
     "build-prod": "webpack -p",
-    "test": "mocha --opts test/mocha.opts",
+    "test": "mocha --opts test/mocha.opts test/pure-node_spec.js test/universal_spec.js",
     "karma": "NODE_ENV=test karma start",
-    "cover": "NODE_ENV=test nyc npm run test"
+    "cover": "NODE_ENV=test nyc npm run test",
+    "pretty": "prettier --write --single-quote --print-width 120 src/**/*.js test/**/*.js *.js"
   },
   "nyc": {
     "sourceMap": false,

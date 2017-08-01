@@ -1,9 +1,6 @@
 // Functions that can run on nodejs
+import path from 'path';
 
-export function echo(st) {
-    return `Echoing ${st}`;
-}
-
-export function add5(a) {
-    return a + 5;
+export function getPathSep() {
+  return path.sep;
 }
