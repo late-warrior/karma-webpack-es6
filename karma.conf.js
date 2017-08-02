@@ -15,7 +15,6 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'https://code.jquery.com/jquery-3.2.1.slim.min.js',
-      //'node_modules/babel-polyfill/dist/polyfill.min.js',
       'test_context.js'
     ],
 
