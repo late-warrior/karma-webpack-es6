@@ -7,9 +7,8 @@ describe('Tests that run on node', () => {
   });
 
   it('should work with generators', () => {
-      const gen = exampleGenerator();
-      assert.equal(gen.next().value, 5);
-      assert.equal(gen.next().value, 4);
+    const gen = exampleGenerator();
+    assert.equal(gen.next().value, 5);
+    assert.equal(gen.next().value, 4);
   });
 });
-

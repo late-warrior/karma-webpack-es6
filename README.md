@@ -24,7 +24,6 @@ the following plugins, whose names convey what they integrate with:
 2. karma-coverage
 3. karma-htmlfile-reporter
 
-
 In addition, since browser based code is webpack'ed, we need to include karma-webpack also.  karma-webpack lets us
 define the entry point in a couple of ways:
 

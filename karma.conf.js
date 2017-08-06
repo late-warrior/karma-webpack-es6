@@ -13,10 +13,7 @@ module.exports = function(config) {
     frameworks: ['mocha'],
 
     // list of files / patterns to load in the browser
-    files: [
-      'https://code.jquery.com/jquery-3.2.1.slim.min.js',
-      'test_context.js'
-    ],
+    files: ['https://code.jquery.com/jquery-3.2.1.min.js', 'test_context.js'],
 
     // list of files to exclude
     exclude: [],
@@ -55,7 +52,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Firefox'],
+    browsers: ['PhantomJS'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the test and exits
@@ -70,7 +67,8 @@ module.exports = function(config) {
       require('karma-mocha'),
       require('karma-sourcemap-loader'),
       require('karma-coverage'),
-      require('karma-htmlfile-reporter')
+      require('karma-htmlfile-reporter'),
+      require('karma-phantomjs-launcher')
     ],
 
     webpack: require('./webpack.config'),
